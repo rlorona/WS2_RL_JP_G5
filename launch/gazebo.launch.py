@@ -52,11 +52,14 @@ def generate_launch_description():
         )]
     )
 
-    ros_gz_bridge = Node(
-        package='ros_gz_bridge',
-        executable='parameter_bridge',
-        parameters=[{'config_file': ros_gz_bridge_config}],
-        output='screen'
+    ros_gz_bridge = TimerAction(
+        period=8.0,
+        actions=[Node(
+            package='ros_gz_bridge',
+            executable='parameter_bridge',
+            parameters=[{'config_file': ros_gz_bridge_config}],
+            output='screen'
+        )]
     )
 
     return LaunchDescription([
