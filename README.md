@@ -18,8 +18,10 @@ ROS 2 Jazzy + Gazebo Sim (gz-sim 8).
 ```bash
 sudo apt install ros-jazzy-desktop ros-jazzy-ros-gz \
   ros-jazzy-xacro ros-jazzy-robot-state-publisher \
-  python3-colcon-common-extensions
+  python3-colcon-common-extensions python3-matplotlib
 ```
+
+La grafica usa matplotlib con backend Tk; necesita una sesion grafica (`DISPLAY`).
 
 El launch de Gazebo usa el plugin `gz-sim-diff-drive-system`; no requiere
 `ros2_control` ni `gz_ros2_control`.
@@ -28,7 +30,9 @@ El launch de Gazebo usa el plugin `gz-sim-diff-drive-system`; no requiere
 
 ```bash
 mkdir -p ~/ros2_ws/src
-# copiar/clonar este paquete dentro de ~/ros2_ws/src
+cd ~/ros2_ws/src
+git clone https://github.com/rlorona/WS2_RL_JP_G5.git \
+  Robot-Pogyo_Lorona-WS2_description
 cd ~/ros2_ws
 colcon build --symlink-install
 source install/setup.bash
@@ -93,6 +97,14 @@ imagen `~/Desktop/WS2_grupo5_trayectoria.png`.
 Conviene esperar a que aparezca la ventana ("Ventana lista") antes de lanzar
 `trayectoria_grupo5.py`; al cerrar la ventana se guarda el PNG. La imagen de la
 entrega queda tambien en `docs/WS2_grupo5_trayectoria.png`.
+
+## Video de la simulacion
+
+El video del robot dibujando el 5 en Gazebo esta en Google Drive:
+
+https://drive.google.com/file/d/1hXXQgFZEFct7ZmKo_lDTNc5uEydO2b_d/view?usp=sharing
+
+El enlace esta compartido como "cualquiera con el enlace puede ver".
 
 ## Parametros de traccion
 
