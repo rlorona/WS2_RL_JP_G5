@@ -1,0 +1,177 @@
+<?xml version="1.0" ?>
+<robot name="Robot-Pogyo_Lorona-WS2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find Robot-Pogyo_Lorona-WS2_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find Robot-Pogyo_Lorona-WS2_description)/urdf/Robot-Pogyo_Lorona-WS2.ros2control" />
+<xacro:include filename="$(find Robot-Pogyo_Lorona-WS2_description)/urdf/Robot-Pogyo_Lorona-WS2.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.0008716134146249028 0.0 0.04007398336506417" rpy="0 0 0"/>
+    <mass value="9.054106572251074"/>
+    <inertia ixx="0.012497" iyy="0.036125" izz="0.044795" ixy="0.0" iyz="0.0" ixz="-2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Robot-Pogyo_Lorona-WS2_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="body_blue">
+      <color rgba="0.100 0.300 0.800 1.000"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Robot-Pogyo_Lorona-WS2_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="1.0052123437711858e-17 0.0 0.0050000000000000044" rpy="0 0 0"/>
+    <mass value="0.2219535209761188"/>
+    <inertia ixx="5.2e-05" iyy="5.2e-05" izz="0.0001" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.0875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Robot-Pogyo_Lorona-WS2_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="lidar_grey">
+      <color rgba="0.200 0.200 0.200 1.000"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.0875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Robot-Pogyo_Lorona-WS2_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin xyz="-0.020000000000000004 0.0 0.010000000000000002" rpy="0 0 0"/>
+    <mass value="0.0628"/>
+    <inertia ixx="4e-06" iyy="4e-06" izz="4e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.11 -0.0 -0.0575" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Robot-Pogyo_Lorona-WS2_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="camera_orange">
+      <color rgba="0.900 0.450 0.100 1.000"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="-0.11 -0.0 -0.0575" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Robot-Pogyo_Lorona-WS2_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="caster_1">
+  <inertial>
+    <origin xyz="0.06000000000000001 -6.855542007598917e-18 -0.006391402495744708" rpy="0 0 0"/>
+    <mass value="0.1627226693245904"/>
+    <inertia ixx="2.2e-05" iyy="2.2e-05" izz="3.8e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.0175" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Robot-Pogyo_Lorona-WS2_description)/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="wheel_black">
+      <color rgba="0.050 0.050 0.050 1.000"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.0175" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Robot-Pogyo_Lorona-WS2_description)/meshes/caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="-5.967448757360216e-16 -0.010000000000000037 2.3592239273284576e-16" rpy="0 0 0"/>
+    <mass value="0.6936047530503711"/>
+    <inertia ixx="0.000267" iyy="0.000488" izz="0.000267" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.08 0.08 -0.0375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Robot-Pogyo_Lorona-WS2_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="wheel_black">
+      <color rgba="0.050 0.050 0.050 1.000"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0.08 0.08 -0.0375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Robot-Pogyo_Lorona-WS2_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="-5.551115123125783e-17 0.010000000000000064 -2.7755575615628914e-17" rpy="0 0 0"/>
+    <mass value="0.6936047530503711"/>
+    <inertia ixx="0.000267" iyy="0.000488" izz="0.000267" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.08 -0.08 -0.0375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Robot-Pogyo_Lorona-WS2_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="wheel_black">
+      <color rgba="0.050 0.050 0.050 1.000"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0.08 -0.08 -0.0375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Robot-Pogyo_Lorona-WS2_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Lidar_Joint" type="fixed">
+  <origin xyz="0.0 0.0 0.0875" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="Camera_Joint" type="fixed">
+  <origin xyz="0.11 0.0 0.0575" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="Caster_Joint" type="fixed">
+  <origin xyz="0.0 0.0 0.0175" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="caster_1"/>
+</joint>
+
+<joint name="Right_Joint" type="continuous">
+  <origin xyz="-0.08 -0.08 0.0375" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Left_Joint" type="continuous">
+  <origin xyz="-0.08 0.08 0.0375" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+</robot>
