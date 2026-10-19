@@ -73,3 +73,30 @@ En `urdf/Robot-Pogyo_Lorona-WS2.gazebo` el plugin `gz-sim-diff-drive-system` usa
 - `wheel_separation`: 0.16 m
 - `wheel_radius`: 0.0375 m
 - Topicos: `/cmd_vel` y `/odom`
+
+## Solucion de problemas
+
+### El robot aparece pero no se mueve
+
+Suele ser que Gazebo arranco **en pausa** (estado guardado por la GUI). Comprueba con:
+
+```bash
+ros2 topic hz /clock
+```
+
+Si no publica nada, la simulacion esta en pausa. Soluciones:
+
+- Pulsa el boton **Play (▶)** en la ventana de Gazebo.
+- O revisa `~/.gz/sim/8/gui.config` y deja:
+
+```xml
+<play_pause>false</play_pause>
+<start_paused>false</start_paused>
+```
+
+- Confirma que `/cmd_vel` tiene un suscriptor y `/odom` trafico:
+
+```bash
+ros2 topic info /cmd_vel
+ros2 topic hz /odom
+```
