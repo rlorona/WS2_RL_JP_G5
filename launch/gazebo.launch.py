@@ -15,6 +15,7 @@ def generate_launch_description():
 
     robot_description_file = os.path.join(pkg_ros_gz_rbot, 'urdf', 'Robot-Pogyo_Lorona-WS2.xacro')
     ros_gz_bridge_config = os.path.join(pkg_ros_gz_rbot, 'config', 'ros_gz_bridge_gazebo.yaml')
+    world_file = os.path.join(pkg_ros_gz_rbot, 'worlds', 'empty_fast.sdf')
     
     robot_description_config = xacro.process_file(robot_description_file)
     robot_description = {'robot_description': robot_description_config.toxml()}
@@ -31,7 +32,7 @@ def generate_launch_description():
    
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(join(pkg_ros_gz_sim, "launch", "gz_sim.launch.py")),
-        launch_arguments={"gz_args": "-r -v 4 empty.sdf"}.items()
+        launch_arguments={"gz_args": f"-r -v 3 {world_file}"}.items()
     )
 
     spawn_robot = TimerAction(

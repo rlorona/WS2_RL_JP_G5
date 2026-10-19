@@ -25,22 +25,29 @@
 
 <gazebo reference="caster_1">
   <material>Gazebo/Black</material>
-  <mu1>0.01</mu1>
-  <mu2>0.01</mu2>
+  <mu1>0.20</mu1>
+  <mu2>0.20</mu2>
+  <self_collide>false</self_collide>
+</gazebo>
+
+<gazebo reference="caster_wheel">
+  <material>Gazebo/Black</material>
+  <mu1>0.20</mu1>
+  <mu2>0.20</mu2>
   <self_collide>false</self_collide>
 </gazebo>
 
 <gazebo reference="right_wheel_1">
   <material>Gazebo/Black</material>
-  <mu1>1.0</mu1>
-  <mu2>1.0</mu2>
+  <mu1>2.0</mu1>
+  <mu2>2.0</mu2>
   <self_collide>false</self_collide>
 </gazebo>
 
 <gazebo reference="left_wheel_1">
   <material>Gazebo/Black</material>
-  <mu1>1.0</mu1>
-  <mu2>1.0</mu2>
+  <mu1>2.0</mu1>
+  <mu2>2.0</mu2>
   <self_collide>false</self_collide>
 </gazebo>
 
